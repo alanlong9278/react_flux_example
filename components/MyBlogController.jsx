@@ -12,8 +12,7 @@ var MyBlogController = React.createClass({
 	},
 
 	componentDidMount: function() {
-		debugger
-    ListStore.addChangeListener(this._onChange);
+		ListStore.addChangeListener(this._onChange);
   },
 
   componentWillUnmount: function() {
@@ -26,12 +25,8 @@ var MyBlogController = React.createClass({
     });
   },
 
-  createNewItem: function (event) {
-  	id = Date.now();
-  	author = document.getElementById('new_blog_author').value;
-  	title = document.getElementById('new_blog_title').value;
-  	content = document.getElementById('new_blog_content').value;
-  	item = {"id": id, "author": author, "title": title, "content": content};
+  createNewItem: function (item) {
+  	item.id = Date.now();
     BlogActions.addNewItem(item);
   },
 
@@ -39,8 +34,8 @@ var MyBlogController = React.createClass({
   	BlogActions.deleteItem(event.target.value);
   },
 
-  render: function() {
-  	debugger
+  render: function () {
+
   	var self = this
 		var blogItems = this.state.items.map(function (item, i) {
 	  		return (

@@ -13,9 +13,8 @@ var ListStore = assign({}, EventEmitter.prototype, {
   },
 
   deleteItemHandler: function (id) {
-  	debugger
   	for(var i = this.items.length; i--;) {
-          if(this.items[i].id === id) {
+          if(this.items[i].id == id) {
               this.items.splice(i, 1);
           }
       }
