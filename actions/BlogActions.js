@@ -1,20 +1,26 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
+var BlogDispatcher = require('../dispatcher/BlogDispatcher');
 
 var BlogActions = {
-
   addNewItem: function (item) {
-    AppDispatcher.dispatch({
+    BlogDispatcher.dispatch({
       actionType: 'ADD_NEW_ITEM',
       item: item
     });
   },
+
   deleteItem: function (id) {
-  	AppDispatcher.dispatch({
+  	BlogDispatcher.dispatch({
   		actionType: 'DELETE_ITEM',
   		id: id
   	});
-  }
+  },
 
+  updateItem: function(item) {
+  	BlogDispatcher.dispatch({
+  		actionType: 'UPDATE_ITEM',
+  		item: item
+  	});
+  }
 };
 
 module.exports = BlogActions;

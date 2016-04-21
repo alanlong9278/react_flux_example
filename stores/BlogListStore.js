@@ -1,7 +1,7 @@
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 
-var ListStore = assign({}, EventEmitter.prototype, {
+var BlogListStore = assign({}, EventEmitter.prototype, {
   items: [],
 
   getAll: function () {
@@ -13,9 +13,18 @@ var ListStore = assign({}, EventEmitter.prototype, {
   },
 
   deleteItemHandler: function (id) {
-  	for(var i = this.items.length; i--;) {
+  	for (var i = this.items.length; i--;) {
           if(this.items[i].id == id) {
               this.items.splice(i, 1);
+          }
+      }
+  },
+
+  updateItemHandler: function (item) {
+  	debugger
+  	for (var i = this.items.length; i--;) {
+          if(this.items[i].id == item.id) {
+              this.items[i] = item;
           }
       }
   },
@@ -33,4 +42,4 @@ var ListStore = assign({}, EventEmitter.prototype, {
   }
 });
 
-module.exports = ListStore;
+module.exports = BlogListStore;
